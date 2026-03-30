@@ -4,7 +4,7 @@ Run the [Avrae](https://github.com/avrae/avrae) D&D 5e game engine locally witho
 
 ## What This Is
 
-[Avrae](https://avrae.io/) is an open-source D&D 5e Discord bot. It handles dice, combat, spells, and character tracking — but requires Discord to run. This project makes it run as a local REST API instead, by replacing the Discord dependency with a mock layer (`mock_disnake.py`). The game engine code is unchanged.
+[Avrae](https://avrae.io/) is an open-source D&D 5e Discord bot. It handles dice, combat, spells, and character tracking, but requires Discord to run. This project makes it run as a local REST API instead, by replacing the Discord dependency with a lightweight mock layer (`mock_disnake.py`). The game engine code is unchanged.
 
 All game data included is from the [D&D 5e SRD](https://dnd.wizards.com/resources/systems-reference-document) (free, Open Gaming License). No paid or copyrighted content is included.
 
@@ -51,10 +51,10 @@ The included SRD data (334 monsters, 319 spells) is free content from Wizards of
 
 ## How It Works
 
-`mock_disnake.py` injects a fake Discord module into `sys.modules` before any Avrae code loads. This lets the real engine code (`cogs5e/`, `gamedata/`, `aliasing/`) import and run without modification. `local_server.py` wraps it as a REST API. `dnd_cli.py` is a CLI client.
+`mock_disnake.py` provides a local stand-in for the Discord module via `sys.modules`, allowing the real engine code (`cogs5e/`, `gamedata/`, `aliasing/`) to import and run without modification. `local_server.py` wraps it as a REST API. `dnd_cli.py` is a CLI client.
 
 ## Credits
 
-- [avrae/avrae](https://github.com/avrae/avrae) — Original engine
-- [5e-bits/5e-database](https://github.com/5e-bits/5e-database) — SRD data
-- [D&D 5e SRD](https://dnd.wizards.com/resources/systems-reference-document) — Game content (OGL)
+- [avrae/avrae](https://github.com/avrae/avrae) - Original engine
+- [5e-bits/5e-database](https://github.com/5e-bits/5e-database) - SRD data
+- [D&D 5e SRD](https://dnd.wizards.com/resources/systems-reference-document) - Game content (OGL)
